@@ -1,0 +1,20 @@
+body {
+    text-align: center;
+    color: white;
+    background-image: url("background.jpg");
+    font-family: chunkyness;
+}
+
+h1 {
+    font-size: 60px;
+
+}
+
+h2, h3 {
+    font-size: 35px;
+}
+
+p {
+    font-size: 30px;
+}
+
