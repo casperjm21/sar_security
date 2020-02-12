@@ -1,7 +1,7 @@
 class Website{
     constructor() {
-        let inputEmail = document.getElementById("email").value;
-        let inputPassword = document.getElementById("password").value;
+        let inputEmail;
+        let inputPassword;
         let getDatabase = function () {
             //just array of user objects with a string username and password
             let user = [
@@ -53,7 +53,9 @@ class Website{
         }
 
         this.init = function () {
-            //initialise
+            let inputEmail = document.getElementById("email").value;
+            let inputPassword = document.getElementById("password").value;
+            verifyPassword();
         }
     }
 }
