@@ -2,6 +2,7 @@ class Website{
     constructor() {
         let getDatabase = function () {
             //just array of user objects with a string username and password
+            let user = [{}]
         }
 
         let verifyUsername = function () {
