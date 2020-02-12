@@ -1,7 +1,7 @@
 class Website{
     constructor() {
-        let inputEmail;
-        let inputPassword;
+        let inputEmail = document.getElementById("email").value;
+        let inputPassword = document.getElementById("password").value;
         let getDatabase = function () {
             //just array of user objects with a string username and password
             let user = [
