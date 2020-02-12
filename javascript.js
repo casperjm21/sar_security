@@ -53,8 +53,8 @@ class Website{
         }
 
         this.init = function () {
-            let inputEmail = document.getElementById("email").value;
-            let inputPassword = document.getElementById("password").value;
+            inputEmail = document.getElementById("email").value;
+            inputPassword = document.getElementById("password").value;
             verifyPassword();
         }
     }
