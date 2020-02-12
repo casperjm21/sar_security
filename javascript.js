@@ -7,23 +7,28 @@ class Website{
             let user = [
                 {
                     email: "singhanga@msoe.edu",
-                    password: "password"
+                    password: "password",
+                    isValid: true
                 },
                 {
                     email: "angadriar@gmail.com",
-                    password: "password"
+                    password: "password",
+                    isValid: true
                 },
                 {
                     email: "krenzva@msoe.edu",
-                    password: "password"
+                    password: "password",
+                    isValid: true
                 },
                 {
                     email: "casperjm@msoe.edu",
-                    password: "password"
+                    password: "password",
+                    isValid: true
                 },
                 {
                     email: "kaura@msoe.edu",
-                    password: "password"
+                    password: "password",
+                    isValid: false
                 }
                 ]
             return user;
