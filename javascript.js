@@ -52,10 +52,24 @@ class Website{
             }
         }
 
+        let verifyUsernamePassword = function () {
+            let user = getDatabase();
+            let passwordMatch = false;
+            for(let i = 0; i < user.length; i++){
+                if(user[i].email == inputEmail && user[i].password == inputPassword){
+                    passwordMatch = true;
+                }
+            }
+            if(passwordMatch) {
+                Window.location.href = "C:\\Users\\singhanga\\Documents\\SE 3810 021\\sar_security\\LoggedIn.html";
+            }
+
+        }
+
         this.init = function () {
             inputEmail = document.getElementById("email").value;
             inputPassword = document.getElementById("password").value;
-            verifyPassword();
+            verifyUsernamePassword();
         }
     }
 }
