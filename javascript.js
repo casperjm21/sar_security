@@ -60,16 +60,18 @@ class Website{
                     passwordMatch = true;
                 }
             }
-            if(passwordMatch) {
-                Window.location.href = "C:\\Users\\singhanga\\Documents\\SE 3810 021\\sar_security\\LoggedIn.html";
-            }
+            return passwordMatch;
 
         }
 
         this.init = function () {
             inputEmail = document.getElementById("email").value;
             inputPassword = document.getElementById("password").value;
-            verifyUsernamePassword();
+            let passwordMatch = verifyUsernamePassword();
+            if (passwordMatch) {
+                Window.location = "C:\\Users\\singhanga\\Documents\\SE 3810 021\\sar_security\\LoggedIn.html";
+            }
+            return false;
         }
     }
 }
