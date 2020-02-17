@@ -7,17 +7,18 @@
     <title>SAR Login</title>
 </head>
 <body>
-<script>
-    web = new Website();
-</script>
+
 <div class="login-page">
 <div class="form">
     <form class="register-form">
         <input id = "email" type="text" placeholder="email" />
         <input id="password" type="text" placeholder="password" />
-        <button id="button" onclick="web.init()"> Login </button>
+        <input type="button" id="button1" onclick="web.init()" value="Login" />
     </form>
 </div>
 </div>
+<script>
+    web = new Website();
+</script>
 </body>
 </html>

@@ -69,9 +69,10 @@ class Website{
             inputPassword = document.getElementById("password").value;
             let passwordMatch = verifyUsernamePassword();
             if (passwordMatch) {
-                Window.location = "C:\\Users\\singhanga\\Documents\\SE 3810 021\\sar_security\\LoggedIn.html";
+                document.location.href = "LoggedIn.html", true;
+            } else {
+                return false;
             }
-            return false;
         }
     }
 }
