@@ -2,6 +2,7 @@ class Website{
     constructor() {
         let inputEmail;
         let inputPassword;
+        let attempt=5;
         let getDatabase = function () {
             //just array of user objects with a string username and password
             let user = [
@@ -55,8 +56,8 @@ class Website{
         let verifyUsernamePassword = function () {
             let user = getDatabase();
             let passwordMatch = false;
-            for(let i = 0; i < user.length; i++){
-                if(user[i].email == inputEmail && user[i].password == inputPassword){
+            for(let i = 0; i < user.length; i++) {
+                if (user[i].email == inputEmail && user[i].password == inputPassword) {
                     passwordMatch = true;
                 }
             }
@@ -70,8 +71,14 @@ class Website{
             let passwordMatch = verifyUsernamePassword();
             if (passwordMatch) {
                 document.location.href = "LoggedIn.html", true;
-            } else {
-                return false;
+            } else if (passwordMatch === false){
+                attempt--;
+                alert("You have left" +attempt+ " attempt;");
+                if(attempt === 0){
+                    document.getElementById("email").disabled = true;
+                    document.getElementById("password").disabled = true;
+                    document.getElementById("button1").disabled = true;
+                }
             }
         }
     }
