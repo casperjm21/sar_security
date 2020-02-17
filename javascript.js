@@ -73,7 +73,7 @@ class Website{
                 document.location.href = "LoggedIn.html", true;
             } else if (passwordMatch === false){
                 attempt--;
-                alert("You have left" +attempt+ " attempt;");
+                alert("You have left " +attempt+ " attempt;");
                 if(attempt === 0){
                     document.getElementById("email").disabled = true;
                     document.getElementById("password").disabled = true;
