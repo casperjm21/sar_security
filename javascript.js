@@ -80,6 +80,19 @@ class Website{
             );
         }
 
+        let sendEmail = function () {
+            Email.send({
+                Host: "smtp.gmail.com",
+                Username : "<sender’s email address>",
+                Password : "<email password>",
+                To : '<recipient’s email address>',
+                From : "<sender’s email address>",
+                Subject : "SAR: suspicious activity",
+                Body : "the wrong password/email combination was tried 5 times, your account is locked " +
+                    "till you reset your password.",
+            })
+        }
+
         this.init = function () {
             inputEmail = document.getElementById("email").value;
             inputPassword = document.getElementById("password").value;
@@ -88,7 +101,7 @@ class Website{
                 document.location.href = "LoggedIn.html"; true;
             } else if (passwordMatch === false){
                 attempt--;
-                alert("You have left " +attempt+ " attempt;");
+                alert("You have " + attempt + " attempt(s) left");
                 if(attempt === 0){
                     document.getElementById("email").disabled = true;
                     document.getElementById("password").disabled = true;
