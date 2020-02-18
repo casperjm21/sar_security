@@ -74,7 +74,7 @@ class Website{
                 To: 'softarch20@gmail.com',
                 From: "krenzva@msoe.edu",
                 Subject: "Test email",
-                Body: "<html><h2>Header</h2><strong>Bold text</strong><br></br><em>Italic</em></html>"
+                Body: "<html><h2>Header</h2><strong>Bold text</strong><br/><em>Italic</em></html>"
             }).then(
                 message => alert(message)
             );
@@ -85,7 +85,7 @@ class Website{
             inputPassword = document.getElementById("password").value;
             let passwordMatch = verifyUsernamePassword();
             if (passwordMatch) {
-                document.location.href = "LoggedIn.html", true;
+                document.location.href = "LoggedIn.html"; true;
             } else if (passwordMatch === false){
                 attempt--;
                 alert("You have left " +attempt+ " attempt;");
