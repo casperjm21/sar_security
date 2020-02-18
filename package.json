@@ -1,7 +1,11 @@
 {
-  "name": "$name$",
-  "version": "$version$",
-  "dependencies": {
-    $END$
+  "name": "ArchRepo",
+  "version": "1.0.0",
+  "dependencies": {},
+  "devDependencies": {
+    "jest": "^25.1.0"
+  },
+  "scripts": {
+    "test": "jest"
   }
 }
