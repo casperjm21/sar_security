@@ -95,8 +95,6 @@ class Website{
                     document.getElementById("button1").disabled = true;
                     sendEmail();
                 }
-            } else if (inputEmail.value === ""){
-                alert("Username cannot be left empty");
             }
         }
     }
