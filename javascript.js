@@ -5,7 +5,7 @@ class Website{
         let attempt = 5;
         let getDatabase = function () {
             //just array of user objects with a string username and password
-            let user = [
+            return [
                 {
                     email: "singhanga@msoe.edu",
                     password: "password",
@@ -31,37 +31,17 @@ class Website{
                     password: "password",
                     isValid: false
                 }
-                ]
-            return user;
-        }
-
-        let verifyUsername = function () {
-            let user = getDatabase();
-            for(let i=0; i < user.length; i++){
-                if(user[i].email == inputEmail){
-                    return true;
-                }
-            }
-        }
-
-        let verifyPassword = function () {
-            let user = getDatabase();
-            for(let i=0; i < user.length; i++){
-                if(user[i].password == inputPassword){
-                    return true;
-                }
-            }
-        }
+            ];
+        };
 
         let verifyUsernamePassword = function () {
             let user = getDatabase();
             let passwordMatch = false;
             for(let i = 0; i < user.length; i++) {
-                if (user[i].email == inputEmail && user[i].password == inputPassword) {
+                if (user[i].email === inputEmail && user[i].password === inputPassword) {
                     passwordMatch = true;
                     attempt = 5;
                 }
-
             }
             return passwordMatch;
         };
@@ -69,15 +49,13 @@ class Website{
         function sendEmail(){
             Email.send({
                 Host: "smtp.mailtrap.io",
-                Username: inputEmail,
-                Password: inputPassword,
+                Username:  "bade588938ef43",
+                Password: "b4490b667a6d9c",
                 To: 'softarch20@gmail.com',
                 From: "krenzva@msoe.edu",
                 Subject: "Test email",
-                Body: "You are being notified because someone tried to access your account"
-            }).then(
-                message => alert(message)
-            );
+                Body: "We noticed a login attempt to your account that seemed suspicious. If you did not make this unusual attempt, please reset your password or disregard this email."
+            })
         }
 
         this.init = function () {
