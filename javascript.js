@@ -2,7 +2,7 @@ class Website{
     constructor() {
         let inputEmail;
         let inputPassword;
-        let attempt=5;
+        let attempt = 5;
         let getDatabase = function () {
             //just array of user objects with a string username and password
             let user = [
@@ -59,10 +59,25 @@ class Website{
             for(let i = 0; i < user.length; i++) {
                 if (user[i].email == inputEmail && user[i].password == inputPassword) {
                     passwordMatch = true;
+                    attempt = 5;
                 }
+
             }
             return passwordMatch;
+        };
 
+        function sendEmail(){
+            Email.send({
+                Host: "smtp.mailtrap.io",
+                Username: inputEmail,
+                Password: inputPassword,
+                To: 'softarch20@gmail.com',
+                From: "krenzva@msoe.edu",
+                Subject: "Test email",
+                Body: "<html><h2>Header</h2><strong>Bold text</strong><br></br><em>Italic</em></html>"
+            }).then(
+                message => alert(message)
+            );
         }
 
         this.init = function () {
@@ -78,7 +93,10 @@ class Website{
                     document.getElementById("email").disabled = true;
                     document.getElementById("password").disabled = true;
                     document.getElementById("button1").disabled = true;
+                    sendEmail();
                 }
+            } else if (inputEmail.value === ""){
+                alert("Username cannot be left empty");
             }
         }
     }
