@@ -74,23 +74,10 @@ class Website{
                 To: 'softarch20@gmail.com',
                 From: "krenzva@msoe.edu",
                 Subject: "Test email",
-                Body: "<html><h2>Header</h2><strong>Bold text</strong><br/><em>Italic</em></html>"
+                Body: "You are being notified because someone tried to access your account"
             }).then(
                 message => alert(message)
             );
-        }
-
-        let sendEmail = function () {
-            Email.send({
-                Host: "smtp.gmail.com",
-                Username : "<sender’s email address>",
-                Password : "<email password>",
-                To : '<recipient’s email address>',
-                From : "<sender’s email address>",
-                Subject : "SAR: suspicious activity",
-                Body : "the wrong password/email combination was tried 5 times, your account is locked " +
-                    "till you reset your password.",
-            })
         }
 
         this.init = function () {
