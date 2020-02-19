@@ -1,55 +1,72 @@
-class Website{
+class Website {
+
     constructor() {
+
+        let db = [
+            {
+                email: "singhanga@msoe.edu",
+                password: "password",
+                isValid: true
+            },
+            {
+                email: "angadriar@gmail.com",
+                password: "password",
+                isValid: true
+            },
+            {
+                email: "krenzva@msoe.edu",
+                password: "password",
+                isValid: true
+            },
+            {
+                email: "casperjm@msoe.edu",
+                password: "password",
+                isValid: true
+            },
+            {
+                email: "kaura@msoe.edu",
+                password: "password",
+                isValid: false
+            }
+        ];
+
         let inputEmail;
         let inputPassword;
         let attempt = 5;
-        let getDatabase = function () {
-            //just array of user objects with a string username and password
-            return [
-                {
-                    email: "singhanga@msoe.edu",
-                    password: "password",
-                    isValid: true
-                },
-                {
-                    email: "angadriar@gmail.com",
-                    password: "password",
-                    isValid: true
-                },
-                {
-                    email: "krenzva@msoe.edu",
-                    password: "password",
-                    isValid: true
-                },
-                {
-                    email: "casperjm@msoe.edu",
-                    password: "password",
-                    isValid: true
-                },
-                {
-                    email: "kaura@msoe.edu",
-                    password: "password",
-                    isValid: false
+        let getUser = function (username) {
+
+            let retUser;
+
+            // Go through the db and look for a username match, return the user object if found and undefined otherwise
+            for (let i = 0; i < db.length; i++) {
+                if (db[i].email === username) {
+                    retUser = db[i]
                 }
-            ];
+            }
+            return retUser;
         };
 
         let verifyUsernamePassword = function () {
-            let user = getDatabase();
-            let passwordMatch = false;
-            for(let i = 0; i < user.length; i++) {
-                if (user[i].email === inputEmail && user[i].password === inputPassword) {
-                    passwordMatch = true;
-                    attempt = 5;
+            let user = getUser(inputEmail);
+
+            if (typeof user !== "undefined") {
+                let passwordMatch = false;
+                for (let i = 0; i < user.length; i++) {
+                    if (user[i].email === inputEmail && user[i].password === inputPassword) {
+                        passwordMatch = true;
+                        attempt = 5;
+                    }
                 }
+                return passwordMatch;
+            } else {
+                alert("User not found!");
             }
-            return passwordMatch;
         };
 
-        function sendEmail(){
+        function sendEmail() {
             Email.send({
                 Host: "smtp.mailtrap.io",
-                Username:  "bade588938ef43",
+                Username: "bade588938ef43",
                 Password: "b4490b667a6d9c",
                 To: 'softarch20@gmail.com',
                 From: "krenzva@msoe.edu",
@@ -63,11 +80,11 @@ class Website{
             inputPassword = document.getElementById("password").value;
             let passwordMatch = verifyUsernamePassword();
             if (passwordMatch) {
-                document.location.href = "LoggedIn.html"; true;
-            } else if (passwordMatch === false){
+                document.location.href = "LoggedIn.html";
+            } else if (passwordMatch === false) {
                 attempt--;
                 alert("You have " + attempt + " attempt(s) left");
-                if(attempt === 0){
+                if (attempt === 0) {
                     document.getElementById("email").disabled = true;
                     document.getElementById("password").disabled = true;
                     document.getElementById("button1").disabled = true;
