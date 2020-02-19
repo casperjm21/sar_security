@@ -1,4 +1,13 @@
+function static_init() {
+   return new Website();
+}
+
 class Website {
+
+    static static_init() {
+        let web = new Website();
+        web.init();
+    };
 
     constructor() {
 
@@ -49,15 +58,25 @@ class Website {
         let verifyUsernamePassword = function () {
             let user = getUser(inputEmail);
 
+            // Check if the user was found
             if (typeof user !== "undefined") {
-                let passwordMatch = false;
-                    if (user.email === inputEmail && user.password === inputPassword) {
-                        passwordMatch = true;
-                        attempt = 5;
-                    }
+                // Clear the error message
+                document.getElementById("invalid").innerText = "";
+
+                // Check to see if the password matches
+                let passwordMatch = user.email === inputEmail && user.password === inputPassword;
+
+                // If it does match, reset the counter
+                if (passwordMatch) {
+                    attempt = 5;
+                }
+
                 return passwordMatch;
+
+                // account name not found
             } else {
-                alert("User not found!");
+                document.getElementById("invalid").innerText = "User " + inputEmail + " not found. ";
+                return false
             }
         };
 
@@ -73,22 +92,27 @@ class Website {
             })
         }
 
-        this.init = function () {
-            inputEmail = document.getElementById("email").value;
-            inputPassword = document.getElementById("password").value;
+        this.init = function (email, password) {
+            inputEmail = email;
+            inputPassword = password;
             let passwordMatch = verifyUsernamePassword();
             if (passwordMatch) {
                 document.location.href = "LoggedIn.html";
+                return true;
             } else if (passwordMatch === false) {
                 attempt--;
-                alert("You have " + attempt + " attempt(s) left");
+                document.getElementById("attempts").innerText = "You have " + attempt + " attempt(s) left";
                 if (attempt === 0) {
                     document.getElementById("email").disabled = true;
                     document.getElementById("password").disabled = true;
                     document.getElementById("button1").disabled = true;
                     sendEmail();
+                    return false;
                 }
             }
         }
     }
 }
+
+module.exports = new Website();
+

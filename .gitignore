@@ -1,3 +1,5 @@
+node_modules/
+
 #Lines (like this one) that begin with # are comments; all other lines are rules
 #ignore all files in the bin/ and /out directories (takes care of .class files for some
 IDEs)

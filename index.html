@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="WebsiteCSS.css">
+    <script src ="./javascript.js"></script>
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+
+    <meta charset="UTF-8">
+    <title>SAR Login</title>
+</head>
+<body>
+
+<div class="login-page">
+<div class="form">
+    <form class="register-form">
+        <input id = "email" type="text" placeholder="email" />
+        <input type='password' id="password" type="text" placeholder="password" />
+        <input type="button" id="button1" onclick="web.init(getEmail(), getPassword())" value="Login" />
+    </form>
+    <p id="attempts" style="color:red;"></p>
+    <p id="invalid" style="color:red;" ></p>
+</div>
+</div>
+<script>
+    web = new Website();
+
+   let getEmail = function(){
+        return document.getElementById("email").value
+    };
+
+    let getPassword = function(){
+        return document.getElementById("password").value
+    }
+</script>
+</body>
+</html>
