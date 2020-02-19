@@ -51,12 +51,10 @@ class Website {
 
             if (typeof user !== "undefined") {
                 let passwordMatch = false;
-                for (let i = 0; i < user.length; i++) {
-                    if (user[i].email === inputEmail && user[i].password === inputPassword) {
+                    if (user.email === inputEmail && user.password === inputPassword) {
                         passwordMatch = true;
                         attempt = 5;
                     }
-                }
                 return passwordMatch;
             } else {
                 alert("User not found!");
