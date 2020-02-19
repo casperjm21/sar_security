@@ -9,7 +9,9 @@ verifyUsernamePassword('verify correct password username combo works', () => {
 
 }
 
-//Test a good email
+goodEmail('check email goes through', () => {
+    sendEmail();z
+}
 
 //Test a bad email
 
